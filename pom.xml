@@ -6,7 +6,7 @@
 
   <groupId>not.hub</groupId>
   <artifactId>Log4jInjectionFilter</artifactId>
-  <version>1.2</version>
+  <version>1.2.1</version>
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
