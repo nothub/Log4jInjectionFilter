@@ -1,6 +1,7 @@
 package not.hub.log4jinjectionfilter;
 
 import io.papermc.lib.PaperLib;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -30,6 +31,7 @@ public final class Plugin extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         PaperLib.suggestPaper(this);
+        new Metrics(this, 13558);
         getServer().getPluginManager().registerEvents(this, this);
     }
 
