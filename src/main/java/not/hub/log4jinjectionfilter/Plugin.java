@@ -28,6 +28,10 @@ public final class Plugin extends JavaPlugin implements Listener {
         return pattern.matcher(message).matches();
     }
 
+    private static boolean isItemMetaEmpty(ItemStack item) {
+        return item == null || item.getType() == Material.AIR || item.getItemMeta() == null;
+    }
+
     @Override
     public void onEnable() {
         PaperLib.suggestPaper(this);
@@ -53,13 +57,13 @@ public final class Plugin extends JavaPlugin implements Listener {
         } else if (event.getHand() == EquipmentSlot.OFF_HAND && event.getPlayer().getInventory().getItemInOffHand().getType() == Material.NAME_TAG) {
             item = event.getPlayer().getInventory().getItemInOffHand();
         }
-        if (item == null || item.getType() == Material.AIR || item.getItemMeta() == null) return;
+        if (isItemMetaEmpty(item)) return;
         if (isInjection(item.getItemMeta().getDisplayName())) event.setCancelled(true);
     }
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
-        if (event.getCurrentItem().getItemMeta() == null) return;
+        if (isItemMetaEmpty(event.getCurrentItem())) return;
         if (isInjection(event.getCurrentItem().getItemMeta().getDisplayName())) {
             event.setCurrentItem(null);
             event.setCancelled(true);
