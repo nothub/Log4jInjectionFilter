@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
-  <description>Filter log4j exploit attempts</description>
+  <description>Filters some ways of sending clientbound log4j injections</description>
   <url>https://github.com/nothub/Log4jInjectionFilter</url>
 
   <licenses>

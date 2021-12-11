@@ -1,7 +1,7 @@
-name: Log4jInjectionFilter
-version: '${project.version}'
+name: ${project.artifactId}
+version: ${project.version}
+description: ${project.description}
+website: ${project.url}
+authors: [ nothub ]
 main: not.hub.log4jinjectionfilter.Plugin
 api-version: 1.18
-authors: [ nothub ]
-description: Filter log4j exploit attempts
-website: https://github.com/nothub/Log4jInjectionFilter
